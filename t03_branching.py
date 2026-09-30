@@ -11,7 +11,12 @@ def task_13(n):
         task_13(-3) == -1
         task_13(0) == 0
     """
-    raise NotImplementedError("Реализуйте task_13")
+    if n > - 0:
+        return 1
+    elif n < 0:
+        return -1
+    return 0
+
 
 
 def task_14(score):
@@ -29,7 +34,13 @@ def task_14(score):
         task_14(60) == "удовлетворительно"
         task_14(59) == "неудовлетворительно"
     """
-    raise NotImplementedError("Реализуйте task_14")
+    if score >= 90:
+        return "отлично"
+    elif score >= 76:
+        return "удовлетворительно"
+    elif score >= 60:
+        return "удовлетворительно"
+    return "неудовлетворительно"
 
 
 def task_15(age, is_citizen):
