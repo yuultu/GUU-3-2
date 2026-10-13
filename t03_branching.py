@@ -42,7 +42,6 @@ def task_14(score):
         return "удовлетворительно"
     return "неудовлетворительно"
 
-
 def task_15(age, is_citizen):
     """Право голоса.
 
@@ -55,7 +54,7 @@ def task_15(age, is_citizen):
         task_15(17, True) == False
         task_15(18, True) == True
     """
-    raise NotImplementedError("Реализуйте task_15")
+    return age >= 18 and is_citizen
 
 
 def task_16(password):
@@ -73,7 +72,11 @@ def task_16(password):
         task_16("StrongPass") == False   # нет цифры
         task_16("Str1") == False         # короткий
     """
-    raise NotImplementedError("Реализуйте task_16")
+    return len(password) >= 8 and any(c.isupper() for c in password) and any(c.isdigit() for c in password)
+
+
+
+
 
 
 def task_17(year):
@@ -88,7 +91,22 @@ def task_17(year):
         task_17(1900) == False   # делится на 100, но не на 400
         task_17(2000) == True    # делится на 400
     """
-    raise NotImplementedError("Реализуйте task_17")
+    return (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0)
+
+
+def task_17(year):
+    """Високосный год.
+
+    Год високосный, если он делится на 4, но не делится на 100,
+    либо делится на 400. Верните True или False.
+
+    Примеры:
+        task_17(2024) == True
+        task_17(2023) == False
+        task_17(1900) == False   # делится на 100, но не на 400
+        task_17(2000) == True    # делится на 400
+    """
+    return (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0)
 
 
 def task_18(op, a, b):
@@ -107,4 +125,19 @@ def task_18(op, a, b):
         task_18("/", 5, 0) is None
         task_18("^", 2, 3) is None
     """
-    raise NotImplementedError("Реализуйте task_18")
+    ops = {
+        "+": lambda x, y: x + y,
+        "-": lambda x, y: x - y,
+        "*": lambda x, y: x * y,
+        "/": lambda x, y: x / y if y != 0 else None,
+    }
+    func = ops.get(op)
+    if func is None:
+        return None
+    return func(a, b)
+
+
+
+
+
+
