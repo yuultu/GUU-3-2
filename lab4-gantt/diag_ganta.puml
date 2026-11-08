@@ -1,0 +1,45 @@
+@startgantt
+title План создания АС программы лояльности
+printscale weekly
+Project starts 2026-11-09
+
+-- Требования и проектирование --
+[Требования к АС] as [R] lasts 4 days
+[Концепция АС] as [C] lasts 3 days
+[C] starts at [R]'s end
+[Техническое задание] as [T] lasts 5 days
+[T] starts at [C]'s end
+[Эскизный проект] as [E] lasts 4 days
+[E] starts at [T]'s end
+[Технический проект] as [P] lasts 6 days
+[P] starts at [E]'s end
+
+-- Рабочая документация --
+[Код и рабочие документы] as [W] lasts 12 days
+[W] starts at [P]'s end
+[Подготовка стенда] as [S] lasts 5 days
+[S] starts at [P]'s end
+
+-- Ввод и сопровождение --
+[Предварительные испытания] as [I] lasts 3 days
+[I] starts at [W]'s end
+[S] -> [I]
+[Опытная эксплуатация] as [O] lasts 5 days
+[O] starts at [I]'s end
+[Приёмочные испытания] as [A] lasts 2 days
+[A] starts at [O]'s end
+[Сопровождение] as [M] lasts 7 days
+[M] starts at [A]'s end
+
+[R] is colored in LightBlue
+[C] is colored in LightBlue
+[T] is colored in LightBlue
+[E] is colored in LightBlue
+[P] is colored in LightBlue
+[W] is colored in LightGreen
+[S] is colored in LightGreen
+[I] is colored in Wheat
+[O] is colored in Wheat
+[A] is colored in Wheat
+[M] is colored in Wheat
+@endgantt
