@@ -11,7 +11,7 @@ def task_13(n):
         task_13(-3) == -1
         task_13(0) == 0
     """
-    if n > - 0:
+    if n > 0:
         return 1
     elif n < 0:
         return -1
@@ -36,8 +36,8 @@ def task_14(score):
     """
     if score >= 90:
         return "отлично"
-    elif score >= 76:
-        return "удовлетворительно"
+    elif score >= 75:
+        return "хорошо"
     elif score >= 60:
         return "удовлетворительно"
     return "неудовлетворительно"
@@ -77,21 +77,6 @@ def task_16(password):
 
 
 
-
-
-def task_17(year):
-    """Високосный год.
-
-    Год високосный, если он делится на 4, но не делится на 100,
-    либо делится на 400. Верните True или False.
-
-    Примеры:
-        task_17(2024) == True
-        task_17(2023) == False
-        task_17(1900) == False   # делится на 100, но не на 400
-        task_17(2000) == True    # делится на 400
-    """
-    return (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0)
 
 
 def task_17(year):
