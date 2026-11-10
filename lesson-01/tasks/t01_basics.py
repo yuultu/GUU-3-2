@@ -32,4 +32,3 @@ def task_05(x, y):
 def task_06(name):
     """Нормализовать имя."""
     return " ".join(word.capitalize() for word in name.split())
-Desktop\lesson-01\tests
