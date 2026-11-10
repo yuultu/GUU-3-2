@@ -2,61 +2,90 @@
 
 
 def task_19(numbers):
-    result = numbers.copy()
-    result.sort(reverse=True)
-    return result
+    """Сортировка по убыванию без изменения оригинала.
+
+    Верните НОВЫЙ список с элементами numbers по убыванию.
+    Исходный список должен остаться без изменений.
+
+    Примеры:
+        task_19([3, 1, 2]) == [3, 2, 1]
+        task_19([5]) == [5]
+        task_19([1, 2, 3]) == [3, 2, 1]
+    """
+    return sorted(numbers, reverse=True)
 
 
 def task_20(items):
-    if len(items) < 3:
-        return ()
+    """Кортеж без первого и последнего элементов.
 
-    result = items[1:-1]
-    return result
+    Если в кортеже меньше трёх элементов, верните пустой кортеж.
+
+    Примеры:
+        task_20((1, 2, 3, 4, 5)) == (2, 3, 4)
+        task_20((1, 2)) == ()
+        task_20((5,)) == ()
+        task_20(()) == ()
+    """
+    return items[1:-1]
 
 
 def task_21(a, b):
-    union = sorted(list(a | b))
-    intersection = sorted(list(a & b))
-    a_minus_b = sorted(list(a - b))
+    """Операции над множествами.
 
-    result = {
-        "union": union,
-        "intersection": intersection,
-        "a_minus_b": a_minus_b
+    Верните словарь с объединением, пересечением и разностью множеств.
+    Значения словаря — отсортированные списки.
+
+    Примеры:
+        task_21({1, 2, 3}, {3, 4}) == {
+            "union": [1, 2, 3, 4],
+            "intersection": [3],
+            "a_minus_b": [1, 2],
+        }
+    """
+    return {
+        "union": sorted(a | b),
+        "intersection": sorted(a & b),
+        "a_minus_b": sorted(a - b),
     }
-
-    return result
 
 
 def task_22(text):
-    words = text.split()
-    result = {}
+    """Частотный словарь слов.
 
-    for word in words:
-        if word in result:
-            result[word] += 1
-        else:
-            result[word] = 1
+    Разбейте текст по пробельным символам и подсчитайте каждое слово.
 
-    return result
+    Примеры:
+        task_22("кот кот пёс") == {"кот": 2, "пёс": 1}
+        task_22("") == {}
+    """
+    counts = {}
+
+    for word in text.split():
+        counts[word] = counts.get(word, 0) + 1
+
+    return counts
 
 
 def task_23(text):
-    text = text.lower()
-    cleaned = ""
+    """Палиндром.
 
-    for char in text:
-        if char.isalnum():
-            cleaned += char
+    Игнорируются регистр и все символы, кроме букв и цифр.
 
-    return cleaned == cleaned[::-1]
+    Примеры:
+        task_23("А роза упала на лапу Азора") == True
+        task_23("привет") == False
+        task_23("") == True
+    """
+    normalized = "".join(char.lower() for char in text if char.isalnum())
+    return normalized == normalized[::-1]
 
 
 def task_24(matrix):
-    total = 0
+    """Сумма главной диагонали квадратной матрицы.
 
-    for i in range(len(matrix)):
-        total += matrix[i][i]
-
-    return total
+    Примеры:
+        task_24([[1, 2], [3, 4]]) == 5
+        task_24([[1, 2, 3], [4, 5, 6], [7, 8, 9]]) == 15
+        task_24([[10]]) == 10
+    """
+    return sum(matrix[i][i] for i in range(len(matrix)))

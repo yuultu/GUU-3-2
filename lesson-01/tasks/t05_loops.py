@@ -2,59 +2,101 @@
 
 
 def task_25(n):
+    """Сумма цифр числа.
+
+    Верните сумму цифр неотрицательного целого числа n. Реализуйте через
+    цикл while (это упражнение на while, а не на str).
+
+    Примеры:
+        task_25(12345) == 15
+        task_25(0) == 0
+        task_25(999) == 27
+    """
     total = 0
-
     while n > 0:
-        digit = n % 10
-        total += digit
-        n = n // 10
-
+        total += n % 10
+        n //= 10
     return total
 
 
 def task_26(n):
+    """Факториал.
+
+    Верните n! для целого n >= 0. Реализуйте через цикл for.
+
+    Примеры:
+        task_26(0) == 1
+        task_26(1) == 1
+        task_26(5) == 120
+        task_26(10) == 3628800
+    """
     result = 1
-
-    for i in range(1, n + 1):
-        result *= i
-
+    for factor in range(2, n + 1):
+        result *= factor
     return result
 
 
 def task_27(n):
-    result = []
+    """Таблица умножения.
 
-    for i in range(n):
+    Верните таблицу умножения размером n×n в виде списка списков:
+    элемент на позиции (i, j) равен (i+1)*(j+1). Используйте вложенные циклы.
+
+    Примеры:
+        task_27(3) == [[1, 2, 3], [2, 4, 6], [3, 6, 9]]
+        task_27(1) == [[1]]
+    """
+    table = []
+    for i in range(1, n + 1):
         row = []
-
-        for j in range(n):
-            row.append((i + 1) * (j + 1))
-
-        result.append(row)
-
-    return result
+        for j in range(1, n + 1):
+            row.append(i * j)
+        table.append(row)
+    return table
 
 
 def task_28(names, days):
-    result = {}
+    """Словарь «месяц → число дней» из двух списков.
 
-    for name, day in zip(names, days):
-        result[name] = day
+    names — список названий месяцев, days — список чисел дней (совпадают по длине).
+    Верните словарь. Используйте zip, а не индексы.
 
-    return result
+    Примеры:
+        task_28(["январь", "февраль"], [31, 28]) == {"январь": 31, "февраль": 28}
+        task_28([], []) == {}
+    """
+    return dict(zip(names, days))
 
 
 def task_29(numbers):
-    return [number * number for number in numbers if number % 2 == 0]
+    """Квадраты чётных чисел.
+
+    Верните список квадратов только чётных чисел из numbers.
+    Используйте генератор списка (list comprehension).
+
+    Примеры:
+        task_29([1, 2, 3, 4]) == [4, 16]
+        task_29([1, 3]) == []
+        task_29([]) == []
+    """
+    return [number ** 2 for number in numbers if number % 2 == 0]
 
 
 def task_30(numbers, stop_value):
-    total = 0
+    """Сумма до sentinel-значения.
 
+    Пройдите по numbers и просуммируйте элементы, пока не встретится элемент,
+    равный stop_value (само это значение не суммируется — прервите цикл break).
+    Если stop_value не встретился, верните сумму всех элементов.
+
+    Примеры:
+        task_30([5, 7, -1, 9], -1) == 12
+        task_30([1, 2], 99) == 3
+        task_30([0, 1, 2], 0) == 0
+    """
+    total = 0
     for number in numbers:
         if number == stop_value:
             break
-
         total += number
-
     return total

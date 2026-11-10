@@ -5,39 +5,31 @@ TAX_RATE = 0.20
 
 
 def task_07(numbers):
-    minimum = min(numbers)
-    maximum = max(numbers)
-    return (minimum, maximum)
+    """Минимум и максимум списка."""
+    return min(numbers), max(numbers)
 
 
 def task_08(total):
-    result = total * (1 + TAX_RATE)
-    return round(result, 2)
+    """Цена с налогом."""
+    return round(total * (1 + TAX_RATE), 2)
 
 
 def task_09(items, item):
-    new_items = items.copy()
-    new_items.append(item)
-    return new_items
+    """Новый список с добавленным элементом."""
+    return items + [item]
 
 
 def task_10(values):
-    result = []
-
-    for value in values:
-        number = int(value)
-        result.append(number)
-
-    return result
+    """Список строк → список целых чисел."""
+    return [int(v) for v in values]
 
 
 def task_11(k):
-    def multiplier(x):
-        return x * k
-
-    return multiplier
+    """Фабрика функций-умножителей (замыкание)."""
+    return lambda x: x * k
 
 
 def task_12(box, key, value):
+    """Изменение словаря по ссылке."""
     box[key] = value
     return box

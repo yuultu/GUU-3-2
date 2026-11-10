@@ -2,46 +2,34 @@
 
 
 def task_01(a, b, c):
-    avg = (a + b + c) / 3
-    return avg
+    """Среднее арифметическое трёх чисел."""
+    return float((a + b + c) / 3)
 
 
 def task_02(total_seconds):
+    """Разложить количество секунд на часы, минуты и секунды."""
     hours = total_seconds // 3600
     minutes = (total_seconds % 3600) // 60
     seconds = total_seconds % 60
-    return (hours, minutes, seconds)
+    return hours, minutes, seconds
 
 
 def task_03(fahrenheit):
-    celsius = (fahrenheit - 32) * 5 / 9
-    return celsius
+    """Перевести температуру из градусов Фаренгейта в градусы Цельсия."""
+    return float((fahrenheit - 32) * 5 / 9)
 
 
 def task_04(price, discount_percent):
-    discount = price * discount_percent / 100
-    final_price = price - discount
-    return round(final_price, 2)
+    """Цена со скидкой."""
+    return round(price * (1 - discount_percent / 100), 2)
 
 
 def task_05(x, y):
-    total = x + y
-    result = f"{x} + {y} = {total}"
-    return result
+    """Строка-отчёт о сумме двух чисел."""
+    return f"{x} + {y} = {x + y}"
 
 
 def task_06(name):
-    name = name.strip()
-    words = name.split()
-    result = ""
-
-    for word in words:
-        word = word.lower()
-        word = word[0].upper() + word[1:]
-
-        if result == "":
-            result = word
-        else:
-            result = result + " " + word
-
-    return result
+    """Нормализовать имя."""
+    return " ".join(word.capitalize() for word in name.split())
+Desktop\lesson-01\tests
